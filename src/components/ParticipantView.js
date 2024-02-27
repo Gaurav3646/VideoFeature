@@ -55,7 +55,7 @@ export const CornerDisplayName = ({
     ? 20
     : 18;
 
-  const show = useMemo(() => mouseOver, [mouseOver]);
+  const show = (() => mouseOver, [mouseOver]);
 
   const {
     webcamStream,
@@ -423,7 +423,7 @@ export function ParticipantView({ participantId }) {
     isActiveSpeaker,
   } = useParticipant(participantId);
 
-  const {selectedSpeaker} = useMeetingAppContext();
+  const { selectedSpeaker } = useMeetingAppContext();
   const micRef = useRef(null);
   const [mouseOver, setMouseOver] = useState(false);
 
@@ -433,9 +433,9 @@ export function ParticipantView({ participantId }) {
         const mediaStream = new MediaStream();
         mediaStream.addTrack(micStream.track);
         micRef.current.srcObject = mediaStream;
-        try{
+        try {
           micRef.current.setSinkId(selectedSpeaker.id);
-        }catch(err){
+        } catch (err) {
           console.log("Setting speaker device failed", err);
         }
         micRef.current
@@ -447,8 +447,8 @@ export function ParticipantView({ participantId }) {
         micRef.current.srcObject = null;
       }
     }
-  }, [micStream, micOn,selectedSpeaker]);
-  
+  }, [micStream, micOn, selectedSpeaker]);
+
   const webcamMediaStream = useMemo(() => {
     if (webcamOn && webcamStream) {
       const mediaStream = new MediaStream();
