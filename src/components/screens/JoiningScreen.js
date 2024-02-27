@@ -422,7 +422,7 @@ export function JoiningScreen({
                       </div>
                     </div>
 
-                    {!isMobile && (
+                    {/* {!isMobile && (
                       <>
                         <div className="absolute top-2 right-10">
                           <NetworkStats />
@@ -447,7 +447,7 @@ export function JoiningScreen({
                           />
                         </div>
                       </>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
