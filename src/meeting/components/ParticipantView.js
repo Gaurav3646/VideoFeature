@@ -16,7 +16,8 @@ function ParticipantsViewer({ isPresenting }) {
     const pinnedParticipantId = [...pinnedParticipants.keys()].filter(
       (participantId) => {
         return participantId !== localParticipant.id;
-      }
+      },
+      [isPresenting, localParticipant.id]
     );
     const regularParticipantIds = [...participants.keys()].filter(
       (participantId) => {
