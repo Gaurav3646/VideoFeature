@@ -31,7 +31,6 @@ function App() {
 
   return (
     <>
-    <h1>Video Conferencing</h1>
       <MeetingAppProvider>
         {isMeetingStarted ? (
 
